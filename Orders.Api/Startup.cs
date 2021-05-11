@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Orders.Api.Middlewares.ExceptionsMiddleware;
 using Orders.BusinessLogic;
 using Orders.Data;
 
@@ -27,6 +28,8 @@ namespace Orders.Api
             }
 
             app.UseRouting();
+
+            app.UseExceptionsMiddleware();
 
             app.UseEndpoints(endpoints =>
             {
