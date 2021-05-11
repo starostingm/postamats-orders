@@ -3,6 +3,7 @@ using Orders.BusinessLogic.Services.Postamats.Interfaces;
 
 namespace Orders.Api.Controllers
 {
+    [Route("postamats")]
     [ApiController]
     public class PostamatsController : ControllerBase
     {

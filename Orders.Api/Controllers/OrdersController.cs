@@ -4,6 +4,7 @@ using Orders.BusinessLogic.Services.Orders.Models;
 
 namespace Orders.Api.Controllers
 {
+    [Route("orders")]
     [ApiController]
     public class OrdersController : ControllerBase
     {
@@ -26,12 +27,14 @@ namespace Orders.Api.Controllers
             return Ok(order);
         }
 
+        [Route("")]
         [HttpPut]
         public void UpdateOrder(UpdateOrderRequest orderDto)
         {
             _ordersService.UpdateOrder(orderDto);
         }
 
+        [Route("")]
         [HttpPost]
         public void CreateOrder(CreateOrderRequest orderDto)
         {
