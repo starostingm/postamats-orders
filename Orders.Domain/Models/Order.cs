@@ -20,7 +20,7 @@ namespace Orders.Domain.Models
         public void SetStatusAsRecievedInWarehouse()
         {
             if (Status != OrderStatus.Registered)
-                throw new OrdersDomainException();
+                throw new InvalidStatusChangeException();
 
             Status = OrderStatus.RecievedInWarehouse;
         }
@@ -28,7 +28,7 @@ namespace Orders.Domain.Models
         public void SetStatusAsGivenToCourier()
         {
             if (Status != OrderStatus.RecievedInWarehouse)
-                throw new OrdersDomainException();
+                throw new InvalidStatusChangeException();
 
             Status = OrderStatus.GivenToCourier;
         }
@@ -36,7 +36,7 @@ namespace Orders.Domain.Models
         public void SetStatusAsLeftInPostamat()
         {
             if (Status != OrderStatus.GivenToCourier)
-                throw new OrdersDomainException();
+                throw new InvalidStatusChangeException();
 
             Status = OrderStatus.LeftInPostamat;
         }
@@ -44,7 +44,7 @@ namespace Orders.Domain.Models
         public void SetStatusAsDeliveredToCustomer()
         {
             if (Status != OrderStatus.LeftInPostamat)
-                throw new OrdersDomainException();
+                throw new InvalidStatusChangeException();
 
             Status = OrderStatus.DeliveredToCustomer;
         }
